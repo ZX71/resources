@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WVS</title>
+</head>
+<body>
+    
+    daum:
+    <script>
+        var textBox = document.getElementsByClassName("textbox_default");
+        textBox[0].value="LIHAIJING";
+        textBox[1].value="980125";
+        textBox[2].value="010-5888-9062";
+        textBox[3].value="T2008653770";
+
+        textBox[0].dispatchEvent( new Event("input",{ bubbles: true}));
+        textBox[1].dispatchEvent( new Event("input", { bubbles: true}));
+        textBox[2].dispatchEvent( new Event("input", { bubbles: true}));
+        textBox[3].dispatchEvent( new Event("input", { bubbles: true}));
+
+
+        function clickButtonAtTime (hour, minute, second, millisecond) 
+        {
+            const targetTime=new Date();
+            targetTime.setHours(hour);
+            targetTime.setMinutes(minute);
+            targetTime.setSeconds(second);
+            targetTime.setMilliseconds(millisecond);
+            console.log("targetTime"+targetTime.toLocaleTimeString);
+
+            let pingValues =[];
+            let pingInterval = setInterval( () => 
+            {
+                const startTime = performance.now();
+                console.log(startTime);
+                fetch(window.location.href).then (response => {
+                    const endTime = performance.now();
+                    console.log(endTime);
+                    const ping= Math.floor(endTime-startTime);
+                    console.log("pingnew"+ping);
+                    pingValues.push(ping);})
+                .catch (error => { console.error("Error calculating ping: ${error}");});
+                console.log("ping"+pingValues[pingValues.length-1]);
+
+                const currentTime = new Date();
+                console.log(currentTime.getTime());
+                console.log(currentTime.toLocaleTimeString());
+                if (currentTime.getTime() > targetTime.getTime()-10000) 
+                {
+                    clearInterval(pingInterval);
+                    const averagePing =pingValues.length >0 ? pingValues.reduce((a,b)=> a+b)/pingValues.length : 0;
+                    console.log("averagePing"+averagePing);
+                    
+                    const clickTime= new Date(targetTime.getTime());
+                    console.log("clickTime"+clickTime.getTime());
+                    
+                    console.log("targetTime"+ targetTime.getTime());
+                    console.log(clickTime.getTime()- currentTime.getTime());
+                    
+                    var t=1;
+                    setTimeout( ()=> {
+                        var finishButton =document.getElementsByClassName("txt_btn");
+                        console.log(t)
+                        if (finishButton)
+                        { finishButton[0].click();
+                        }
+                        t++;
+                    }, clickTime.getTime()- currentTime.getTime());
+                }
+            }, 50);
+        }
+    clickButtonAtTime (12,29,59,850);
+
+    </script>
+
+01650 06250 59860 
+LIWENJING
+19990514
+010-8099-1024
+LIHAIJING/980125/010-5888-9062/T2008653770
+010-7605-5695/16834482671442
+
+
+
+
+WVS:
+<script>
+    var textBox = document.getElementsByClassName("sc-hTZgZg jrPJZA");
+    textBox[0].value="LI";
+    textBox[1].value="WENJING";
+    textBox[2].value="19990514";
+    textBox[3].value="01080991024";
+
+    var consentBox = document.getElementsByName("terms-21464");
+    consentBox[0].checked= true;
+    var consentBox2 = document.getElementsByName("terms-21465");
+    consentBox2[0].checked= true;
+
+    var agreeItems = document.getElementsByName("agreedTermIds");
+    agreeItems[0].value="21464,21465";
+    agreeItems[0].dispatchEvent( new Event("input",{ bubbles: true}));
+
+    function clickButtonAtTime (hour, minute, second, millisecond) 
+    {
+        const targetTime=new Date();
+        targetTime.setHours(hour);
+        targetTime.setMinutes(minute);
+        targetTime.setSeconds(second);
+        targetTime.setMilliseconds(millisecond);
+        console.log("targetTime"+targetTime.toLocaleTimeString);
+
+        let pingValues =[];
+        let pingInterval = setInterval( () => 
+        {
+            const startTime = performance.now();
+            console.log(startTime);
+            fetch(window.location.href).then (response => {
+                const endTime = performance.now();
+                console.log(endTime);
+                const ping= Math.floor(endTime-startTime);
+                console.log("pingnew"+ping);
+                pingValues.push(ping);})
+            .catch (error => { console.error("Error calculating ping: ${error}");});
+            console.log("ping"+pingValues[pingValues.length-1]);
+
+            const currentTime = new Date();
+            console.log(currentTime.getTime());
+            console.log(currentTime.toLocaleTimeString());
+            if (currentTime.getTime() > targetTime.getTime()-10000) 
+            {
+                clearInterval(pingInterval);
+                const averagePing =pingValues.length >0 ? pingValues.reduce((a,b)=> a+b)/pingValues.length : 0;
+                console.log("averagePing"+averagePing);
+                
+                const clickTime= new Date(targetTime.getTime());
+                console.log("clickTime"+clickTime.getTime());
+                
+                console.log("targetTime"+ targetTime.getTime());
+                console.log(clickTime.getTime()- currentTime.getTime());
+                
+                var t=1;
+                setTimeout( ()=> {
+                    var finishButton =document.getElementsByClassName("sc-gsxoIA dbmIBg");
+                    var finishButton1 =document.getElementsByClassName("sc-bkzYnD cSLkBQ");
+                    console.log(t);
+                    if (finishButton)
+                    { finishButton[0].click();
+                      finishButton1[0].click();
+                    }
+                    t++;
+                }, clickTime.getTime()- currentTime.getTime());
+            }
+        }, 50);
+    }
+    clickButtonAtTime (14,59,59,810);
+
+</script>
+800抢跑，900不进150，850不进300，830不进100
+
+LUN8    80  20   5   150     15      15     15      150  15   15   15  !10  240
+WENJING 810 000 400 200(125) 000     58890  58880   100  000  950      100  200
+HAI     750 000 200 400      58800    
+
+TREASURE 100 50
+
+</body>
+</html>
+
+naver:
+<script>
+        var textBox = document.getElementsByClassName("textFieldSize ui_inputbox ui_component ui_focusable medium");
+        textBox[0].value="LIUWENJING";
+        textBox[1].value="99.05.14";
+        textBox[2].value="010-7605-5695";
+        textBox[3].value="T2008653770";
+
+        textBox[0].dispatchEvent( new Event("input",{ bubbles: true}));
+        textBox[1].dispatchEvent( new Event("input", { bubbles: true}));
+        textBox[2].dispatchEvent( new Event("input", { bubbles: true}));
+        textBox[3].dispatchEvent( new Event("input", { bubbles: true}));
+
+        var finishButton =document.getElementsByClassName("submitBtn pageNavBtn ui_button normal len4");
+        finishButton[0].click();
+        
+</script>
+
+bstage:
+<script>
+function clickButtonAtTime (hour, minute, second, millisecond) 
+    {
+        const targetTime=new Date();
+        targetTime.setHours(hour);
+        targetTime.setMinutes(minute);
+        targetTime.setSeconds(second);
+        targetTime.setMilliseconds(millisecond);
+        console.log("targetTime"+targetTime.toLocaleTimeString);
+
+        let pingValues =[];
+        let pingInterval = setInterval( () => 
+        {
+            const startTime = performance.now();
+            console.log(startTime);
+            fetch(window.location.href).then (response => {
+                const endTime = performance.now();
+                console.log(endTime);
+                const ping= Math.floor(endTime-startTime);
+                console.log("pingnew"+ping);
+                pingValues.push(ping);})
+            .catch (error => { console.error("Error calculating ping: ${error}");});
+            console.log("ping"+pingValues[pingValues.length-1]);
+
+            const currentTime = new Date();
+            console.log(currentTime.getTime());
+            console.log(currentTime.toLocaleTimeString());
+            if (currentTime.getTime() > targetTime.getTime()-10000) 
+            {
+                clearInterval(pingInterval);
+                const averagePing =pingValues.length >0 ? pingValues.reduce((a,b)=> a+b)/pingValues.length : 0;
+                console.log("averagePing"+averagePing);
+                
+                const clickTime= new Date(targetTime.getTime());
+                console.log("clickTime"+clickTime.getTime());
+                
+                console.log("targetTime"+ targetTime.getTime());
+                console.log(clickTime.getTime()- currentTime.getTime());
+                
+                var t=1;
+                setTimeout( ()=> {
+                    var finishButton =document.getElementsByClassName("Button_container__a1Cru Button_large__ecBab Button_contained__cpO6n Button_primary__bUZKl");
+                    console.log(t);
+                    if (finishButton)
+                    { finishButton[0].click();
+                    }
+                    t++;
+                }, clickTime.getTime()- currentTime.getTime());
+            }
+        }, 50);
+    }
+    clickButtonAtTime (18,59,59,755);
+</script>
+ateez 800预备 750抢跑 770-115 760-40  760-134-400 500-750 700-947
+xikers 720-974 780-250-95 760-158-59
+
+daum post btn_g full_type1
+12,48,01,330
+
+"Button_container__a1Cru Button_medium__YFbW5 Button_contained__cpO6n Button_primary__bUZKl Button_fullWidth__ePwBI Confirm_confirmButton__A3qWX"
+Textarea_container__wVlb8
+
+
+MNWT:
+<script>
+    var textBox = document.getElementsByClassName("textbox_default");
+    textBox[0].value="LIHAIJING";
+    textBox[1].value="980125";
+    textBox[2].value="010-5888-9062";
+    textBox[3].value="T2008653770";
+
+    textBox[0].dispatchEvent( new Event("input",{ bubbles: true}));
+    textBox[1].dispatchEvent( new Event("input", { bubbles: true}));
+    textBox[2].dispatchEvent( new Event("input", { bubbles: true}));
+    textBox[3].dispatchEvent( new Event("input", { bubbles: true}));
+
+
+    function clickButtonAtTime (hour, minute, second, millisecond) 
+    {
+        const targetTime=new Date();
+        targetTime.setHours(hour);
+        targetTime.setMinutes(minute);
+        targetTime.setSeconds(second);
+        targetTime.setMilliseconds(millisecond);
+        console.log("targetTime"+targetTime.toLocaleTimeString);
+
+        let pingValues =[];
+        let pingInterval = setInterval( () => 
+        {
+            const startTime = performance.now();
+            console.log(startTime);
+            fetch(window.location.href).then (response => {
+                const endTime = performance.now();
+                console.log(endTime);
+                const ping= Math.floor(endTime-startTime);
+                console.log("pingnew"+ping);
+                pingValues.push(ping);})
+            .catch (error => { console.error("Error calculating ping: ${error}");});
+            console.log("ping"+pingValues[pingValues.length-1]);
+
+            const currentTime = new Date();
+            console.log(currentTime.getTime());
+            console.log(currentTime.toLocaleTimeString());
+            if (currentTime.getTime() > targetTime.getTime()-10000) 
+            {
+                clearInterval(pingInterval);
+                const averagePing =pingValues.length >0 ? pingValues.reduce((a,b)=> a+b)/pingValues.length : 0;
+                console.log("averagePing"+averagePing);
+                
+                const clickTime= new Date(targetTime.getTime());
+                console.log("clickTime"+clickTime.getTime());
+                
+                console.log("targetTime"+ targetTime.getTime());
+                console.log(clickTime.getTime()- currentTime.getTime());
+                
+                var t=1;
+                setTimeout( ()=> {
+                    var finishButton =document.getElementsByTagName("button");
+                    console.log(t)
+                    if (finishButton)
+                    { finishButton[1].click();
+                    }
+                    t++;
+                }, clickTime.getTime()- currentTime.getTime());
+            }
+        }, 50);
+    }
+clickButtonAtTime (17,29,59,140);
+
+   300   220       220    !380  300      280              35                 !200          220          170    350      100    230   220   220   170
+LI 000   200       58200  !710  450                                                        995          996 LI 040      000          400   500
+ZX 500   000(49)   56800  !720  050                                                                         ZX 250      250                710
+HAI      400       58400  !700  250(250) 10fte/5s-125 8fte/5s-94 6fte/5s-42  !995                                                          600
+MU       58800     57800  !     650      3fte/1s-143  5fte/s-168                                            ML 230      070          600   000
+                                    
+TAN                                     180(113)          150  2.6fte/s-137                             998 TAN 080
+XHL                                     200 9fte/1s       125                                           996 XHL 240
+WDY                                     220               100                                               WDY 140(62)
+LYU                                     240               075
+
+ZLL                                                                           !005         999(171)         ZLL 070     140
+LYT                                                                           !000（158）               998 LYT 030             xxx  250   400
+ZY                                                                                         997          997  ZY 000
+ZYH                                                                                        001              XGJ         180    140         200
+CTY                                                                                        000              CTY 210     160    160   200   300
+XRT                                                                                        998              YJX         150
+ZQM                                                                                        996              YSM                180
+ZYH                                                                                                     995 ZHY 180(62)
+ZLL                                                                                                         ZLL 110     170
+                                                                                                            XXS 100
+                                                                                                            YYH 130
+                                                                                                            CL  170 10FTE            300
+                                                                                                            LJX 200                  350
+</script>
+
+
+var finishButton =document.getElementsByClassName("btn_Booking");
+finishButton[0].childNodes[1].click()
