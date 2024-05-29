@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSpractice</title>
+    <!-- 
+    <script>
+        function validateForm()
+        {
+            var x = document.forms["myForm"]["fname"].value;
+            if (x==null|| x=="")
+            {
+                alert("pls input name")
+                return false;
+            }
+
+            var y=document.forms["myForm"]["email"].value;
+            var atpos= y.indexOf("@");
+            var dotpos=y.lastIndexOf(".")
+            if (atpos<1 || dotpos<atpos+2 || dotpos+2>y.length)
+            {
+                alert("invalid address");
+                return false;
+            }
+        }
+    </script>
+
+    <script>
+        a=5; b=6; console.log(a+b);
+    </script>
+    -->
+</head>
+    
+<body>
+    <!-- 
+
+    <p id="demo"> <strong>hello</strong> world!</p>
+    
+    <script>
+        document.write("<h1> this is a header </h1>")
+        document.write("<p> this is a paragraph </p>")
+    </script>
+    
+    <script>
+        function myFunction()
+        {
+            x=document.getElementById("demo");
+            x.innerHTML="brilliant js!"
+            x.style.color="#ff0000"
+        }
+    </script>
+
+    <button type="button" onclick="myFunction()"> click here </button>
+
+
+
+    <input id="bar" type="text">
+    <script>
+        function isnumber()
+        {
+            var x= document.getElementById("bar").value;
+            if 
+            ( x.replace(/(^\s*)|(\s*$)/g,"")=="" || isNaN(x))
+            {
+                alert("not a number")
+            }
+        }
+    </script>
+    <button type="button" onclick="isnumber()"> input </button>
+    
+
+    
+
+    interface HTMLInputElement extends HTMLElement {}
+    <input type="text"/ "password"/"submit"/"button"/ "radio"/"checkbox"/"file"/"hidden"/"image"/"reset">
+
+
+
+
+    <input id="numb">
+    <button type="button" onclick="validatenum()"> submit </button>
+    <p id="warning"></p>
+    <script>
+        function validatenum()
+        {
+            var x, text;
+            x=document.getElementById("numb").value;
+            if (isNaN(x)|| x<1 || x>10)
+            {
+                text="wrong input"
+            }
+            else
+            {
+                text="right input"
+            }
+            document.getElementById("warning").innerHTML=text
+        }
+    </script>
+
+
+    <input id="id1" type="number" min="100" max="300" required>
+    <button onclick="val()"> validate </button>
+    <p id="wrongm"></p>
+    <script>
+        function val()
+        {
+            var inpobj=document.getElementById("id1");
+            if ( inpobj.checkValidity()==false || inpobj.validate.rangeOverflow|| inpobj.validate.rangeUnderflow || isNaN(parseFloat(inpobj.value)) || isFinite(inpobj.value))
+            {
+                document.getElementById("wrongm").innerHTML= inpobj.validationMessage;   
+            } else {
+                document.getElementById("wrongm").innerHTML="correct input"
+            }   
+        }
+    </script>
+
+    <script>
+        var person= 
+        {
+            firstname: "XIN",
+            lastname: "ZHAO",
+            id: 0412,
+            fullname: full()
+            {
+                return this.firstname +" "+ this.lastname;
+            }
+        };
+    </script>
+
+    
+
+ 
+
+
+    interface HTMLTextAreaElement extends HTMLElement
+    
+        
+    
+-->
+
+    
+   
+    
+    <!--     
+    <script>
+        var myDtae= new Date();
+        myDtae.setFullYear(2010,0,14)
+    </script>
+
+    <textarea rows="25" cols="5" initial value </textarea>
+
+
+
+    <button onclick="this.innerHTML=Date()"> what time is it</button>
+    <button id="dis"> click me to dispear </button>
+    <script>
+        document.getElementById("dis").onclick=function(){dispear()};
+        document.getElementById("dis").removeEventListener("click",dispear);
+        document.getElementById("dis").addEventListener("click",dispear);
+        function dispear()
+        {
+            document.getElementById("dis").style.display="none";
+        }
+    </script>
+
+
+
+    <h1 onclick="this.innerHTML='every element can be clicked'"> hi there </h1>
+
+    <form name="myFrom" action="demo_from.php" onsubmit="return validateForm()" method="post">
+        name: <input type="text" name="fname" required="required" onchange="this.value=this.value.toUpperCase()">
+        email: <input type="text" name="email" onfocus="this.style.background='red'">
+        <input type="submit" value="submit here">
+    </form>
+
+    <div id="contain" 
+        onmouseover="this.style.color='green'" onmouseout="this.style.color='red'" 
+        style="background-color:#D94A38;width:240px;height:30px;padding:50px;"> 
+        Mouse Over Me 
+        <p id="first"> first of all</p>
+        <p id="second"> secondly </p>
+    </div>
+    <script>
+        var contain=document.getElementById("contain");
+        contain.addEventListener("click",function(){alert('out');},false);
+        var p1=document.getElementById("first");
+        p1.addEventListener("click",function(){alert('oinner');},false);
+
+        var newp=document.createElement("p");
+        var node=document.createTextNode("thirdly");
+        newp.appendChild(node);
+        contain.appendChild(newp);
+        contain.insertBefore(newp,p1);
+
+        p1.parentNode.removeChild(p1);
+  
+        var ps= contain.getElementsByTagName("p"); 
+        document.write(ps.length);
+        contain.replaceChild(newp,ps[1]);
+
+        var testd=new Date();
+    </script>
+
+    <img id="myimage" onmousedown="document.getElementById('myiamge').src='/images/pic_bulbon.gif'" 
+    onmouseup="document.getElementById('myiamge').src='/images/pic_bulboff.gif'" 
+    onclick="changeImage()" src="/images/pic_bulboff.gif" width="100" height="180"> 
+    <script>
+    function changeImage()
+    {
+        Element=document.getElementById("myiamge")
+        if (Element.src.match("bulbon"))
+        {
+            Element.src="/images/pic_bulboff.gif";
+        }
+        else
+        {
+            Element.src="/images/pic_bulbon.gif";
+        }
+    }
+    </script>
+
+    -->
+
+    
+
+
+
+
+
+</body>
+
+<!--
+<script type="text/javascript">
+    alert("hello, javascript!"); //hhhh
+</script>
+-->
+
+</html>
