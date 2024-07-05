@@ -343,6 +343,57 @@ ZLL                                                                             
                                                                                                             LJX 200                  350
 </script>
 
-
 var finishButton =document.getElementsByClassName("btn_Booking");
 finishButton[0].childNodes[1].click()
+
+GOOGLE:
+function clickButtonAtTime (hour, minute, second, millisecond) 
+    {
+        const targetTime=new Date();
+        targetTime.setHours(hour);
+        targetTime.setMinutes(minute);
+        targetTime.setSeconds(second);
+        targetTime.setMilliseconds(millisecond);
+        console.log("targetTime"+targetTime.toLocaleTimeString);
+
+        let pingValues =[];
+        let pingInterval = setInterval( () => 
+        {
+            const startTime = performance.now();
+            console.log(startTime);
+            fetch(window.location.href).then (response => {
+                const endTime = performance.now();
+                console.log(endTime);
+                const ping= Math.floor(endTime-startTime);
+                console.log("pingnew"+ping);
+                pingValues.push(ping);})
+            .catch (error => { console.error("Error calculating ping: ${error}");});
+            console.log("ping"+pingValues[pingValues.length-1]);
+
+            const currentTime = new Date();
+            console.log(currentTime.getTime());
+            console.log(currentTime.toLocaleTimeString());
+            if (currentTime.getTime() > targetTime.getTime()-10000) 
+            {
+                clearInterval(pingInterval);
+                const averagePing =pingValues.length >0 ? pingValues.reduce((a,b)=> a+b)/pingValues.length : 0;
+                console.log("averagePing"+averagePing);
+                
+                const clickTime= new Date(targetTime.getTime());
+                console.log("clickTime"+clickTime.getTime());
+                
+                console.log("targetTime"+ targetTime.getTime());
+                console.log(clickTime.getTime()- currentTime.getTime());
+                
+                var t=1;
+                setTimeout( ()=> {
+                    var finishButton =document.getElementsByClassName("uArJ5e UQuaGc Y5sE8d VkkpIf QvWxOd M9Bg4d");
+                    if (finishButton)
+                    { finishButton[0].click();
+                    }
+                    t++;
+                }, clickTime.getTime()- currentTime.getTime());
+            }
+        }, 50);
+    }
+    clickButtonAtTime (12,59,59,050);
